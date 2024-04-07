@@ -19,10 +19,15 @@ Share your project with the following GitHub users:
 - omasri-tb
 - alexwine36
 
-## Example cURL
-```
-curl -X POST -F "image=@extracted_page_xyz.png" "http://localhost:3000/run-inference?type=wall"
-curl -X POST -F "image=@extracted_page_xyz.png" "http://localhost:3000/run-inference?type=room"
-curl -X POST -F "image=@extracted_page_xyz.png" "http://localhost:3000/run-inference?type=page_info"
-curl -X POST -F "image=@extracted_page_xyz.png" "http://localhost:3000/run-inference?type=tables"
-```
+## Building Docker Image:
+'cd src'
+'docker build -t ml-eng-test .'
+
+## Running Docker Container:
+'docker run -it -p 8000:8000 ml-eng-test'
+
+## Testing API with cURL:
+Example cURL:
+'cd src'
+'curl -X POST "http://127.0.0.1:8000/run-inference?type=room" -F "image=@data/Rooms/Room_img_masked/mask__13.jpg"'
+
